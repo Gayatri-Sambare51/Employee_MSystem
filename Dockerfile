@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Second stage: create a minimal image
-FROM openjdk:17-jre-slim
+FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=builder /app/target/Employee_System-1.jar app.jar
 EXPOSE 8080
